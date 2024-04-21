@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/StyleSheets/Register.css">
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <!-- pintrest image  -->
+            <img src="https://i.pinimg.com/originals/d3/d1/75/d3d175e560ae133f1ed5cd4ec173751a.png" alt="pin logo" class="img1" />
+
+            <p class="header">welcome to the pintrest </p>
+
+            <p class="text">find new ideas to try</p>
+
+            <!-- form data  -->
+            <form action="/api/v1/createuser/register" method="post" class="form">
+            <input type="name" placeholder="fullname" class="detail" />
+            <input type="name" placeholder="username" class="detail" />
+              <input type="email" placeholder="Email" class="detail" />
+              <input type="password" placeholder="Password" class="detail" />
+           
+            <br/>
+                                
+              <button class="btn int" type="submit">register</button>
+
+              <p class="or">OR</p>
+
+              <button class="btn fbk">
+                  <i class="fab fa-facebook fa-lg" style="color: white; padding-right: 10px"></i><a href="#">Continue with
+                                        Facebook</a></button><br />
+              <button class="btn ggl">
+                  <i class="fab fa-google" style="color: rgb(11, 241, 22); padding-right: 10px"></i><a href="#">Continue with
+                                        Google</a>
+              </button>
+            </form>
+
+
+
+            <footer>
+                <p>
+                    By continuing, you agree to Pinterest's
+                    <b>Terms of Service, Privacy policy.</b>
+                </p>
+                <hr />
+                <p class="end-text">Already a member? Login</p>
+            </footer>
+
+        </div>
+    </div>
+
+</body>
+</html>
