@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/StyleSheets/Register.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -18,25 +21,31 @@
 
             <!-- form data  -->
             <form action="/api/v1/createuser/register" method="post" class="form">
-            <input type="name" placeholder="fullname" class="detail" />
-            <input type="name" placeholder="username" class="detail" />
-              <input type="email" placeholder="Email" class="detail" />
-              <input type="password" placeholder="Password" class="detail" />
+
+            <input type="name" name="fullName" placeholder="full name" class="detail" />
+
+            <input type="name" name="userName" placeholder="user name" class="detail" />
+
+              <input type="email" name="email" placeholder="email" class="detail" />
+
+              <input type="password" name="password" placeholder="password" class="detail" />
+              
+
            
             <br/>
                                 
               <button class="btn int" type="submit">register</button>
-
-              <p class="or">OR</p>
-
-              <button class="btn fbk">
-                  <i class="fab fa-facebook fa-lg" style="color: white; padding-right: 10px"></i><a href="#">Continue with
-                                        Facebook</a></button><br />
-              <button class="btn ggl">
-                  <i class="fab fa-google" style="color: rgb(11, 241, 22); padding-right: 10px"></i><a href="#">Continue with
-                                        Google</a>
-              </button>
             </form>
+
+            <p class="or">OR</p>
+            
+            <button class="btn fbk">
+                <i class="fab fa-facebook fa-lg" style="color: white; padding-right: 10px"></i><a href="#">Continue with
+                    Facebook</a></button><br />
+            <button class="btn ggl">
+                <i class="fab fa-google" style="color: rgb(11, 241, 22); padding-right: 10px"></i><a href="#">Continue with
+                    Google</a>
+            </button>
 
 
 
@@ -46,7 +55,9 @@
                     <b>Terms of Service, Privacy policy.</b>
                 </p>
                 <hr />
-                <p class="end-text">Already a member? Login</p>
+                <p class="end-text">Already a member? 
+                    <a href="/login" > Login</a>
+                </p>
             </footer>
 
         </div>

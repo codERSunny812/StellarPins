@@ -1,5 +1,5 @@
 import mongoose from "mongoose"
-
+import plm from 'passport-local-mongoose'
 const userSchema = new mongoose.Schema(
   {
     userName: {
@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      unique: true,
+      
     },
     fullName: {
       type: String,
@@ -34,5 +34,8 @@ const userSchema = new mongoose.Schema(
     timestamps: true
    }
 )
+
+
+userSchema.plugin(plm)
 
 export const UserModal = mongoose.model("UserModal", userSchema)

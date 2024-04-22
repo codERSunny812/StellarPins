@@ -1,5 +1,7 @@
 import express from "express"
 import { UserModal } from "../models/user.modal.js";
+import bcryptjs from 'bcryptjs'
+import passport from "passport";
 
 const Router = express.Router();
 
@@ -7,7 +9,9 @@ const Router = express.Router();
 
 // route to create a user
 Router.post('/register',  async(req, res, next)=> {
-    
+
+    console.log(req.body);
+
     const {userName , email , password , fullName} = req.body;
     
     if ( !userName || !email || !password || !fullName ){
@@ -20,11 +24,16 @@ Router.post('/register',  async(req, res, next)=> {
         return res.status(200).send('User already exists');
     }
 
+
+    // it will hashed the password
+    const hashedPassword =  await bcryptjs.hash(password,10);
+
+
     //create the user 
     const user =await UserModal.create(({
         userName: userName,
         email: email,
-        password: password,
+        password:hashedPassword,
         fullName: fullName,
         
     }));
@@ -32,12 +41,26 @@ Router.post('/register',  async(req, res, next)=> {
     await user.save()
 
 
-    return res.send("user created successfully");
+  res.redirect('/login');
 
 });
 
-Router.post('/alluser',(req,res)=>{
+
+Router.post('/login', passport.authenticate('local', {
+    successRedirect: '/feed', // Change this to your success route
+    failureRedirect: '/login',
+    failureFlash:true
+}));
+
+
+Router.get('/alluser',(req,res)=>{
     res.send("this is the all user");
+})
+
+
+Router.get('/logout',(req,res)=>{
+    // req.logOut();
+    res.redirect('/');
 })
 
 

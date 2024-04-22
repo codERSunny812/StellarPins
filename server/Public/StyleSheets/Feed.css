@@ -1,0 +1,62 @@
+.container{
+    /* border: 2px solid red; */
+}
+
+.topBar{
+    /* border: 2px solid gold; */
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+
+  
+}
+
+.topBar_img{
+    height: 60px;
+}
+
+.top-text{
+    /* border:2px solid black; */
+    text-transform: capitalize;
+    font-size: 16px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+    
+       
+}
+
+.top-text a{
+    text-decoration: none;
+    color: black;
+}
+
+.home{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 20%;
+}
+
+#searchBar{
+    /* border:2px solid hotpink; */
+    width: 55%;
+    height: 42px;
+    background:#F1F1F1;
+    border:none;
+    border-radius: 15px;
+}
+#searchBar::placeholder{
+    padding-left: 12px;
+    color:#767676;
+    font-weight: 600;
+    font-style: oblique;
+}
+
+
+.noti , .user{
+    /* border: 2px solid red; */
+    height: 35px;
+    
+}
+
+
