@@ -8,6 +8,7 @@ import initilizePassport  from './utils/PassportConfig.js';
 import expressSession from 'express-session';
 import passport from 'passport';
 import flash from 'connect-flash'
+import { UserModal } from './models/user.modal.js';
 
 
 
@@ -47,9 +48,6 @@ app.use(passport.session());
 
 
 
-
-
-
 // mount the  router
 app.use('/api/v1/createuser',UserRouter);
 app.use('/api/v1/createpost',PostRouter);
@@ -69,8 +67,15 @@ app.get('/login', (req, res) => {
 
 
 // profile page
-app.get('/profile',(req,res)=>{
-    res.render('Profile')
+app.get('/profile',async (req,res)=>{
+    const user = await UserModal.findOne({_id:req.session.passport.user});
+
+  //when a user is logged in then a user data is stored in the passpor.user
+    console.log(user)
+
+    res.render('Profile',{user})
+
+
 })
 
 // feed page 
@@ -85,13 +90,7 @@ app.get('/createpost',(req,res)=>{
 })
 
 
-
-
-
-
-
-
-
+ 
 app.listen(PORT,()=>{
     console.log(`server is running at ${PORT}`);
 })
