@@ -74,7 +74,8 @@
 .caption{
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    align-items: center;
+    gap: 20px;
 }
 
 .caption label{
@@ -142,6 +143,18 @@
     width: 100%;
     height: 100%;
     cursor: pointer;
+}
+
+
+
+button{
+    width: 50%;
+    padding: 15px 3px;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    background-color: black;
+    text-transform: capitalize;
 }
 
 
