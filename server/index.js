@@ -67,10 +67,14 @@ app.get("/profile", async (req, res) => {
     try {
         const user = await userModal.findOne({ _id: req.session.passport.user }).populate('posts');
 
+        
         // Log the populated user object to see the posts array populated with post documents
+        console.log("the data of the current loggedIn user is:")
         console.log(user);
 
-        const savedPost = await bookmarksModel.find();
+        const savedPost = await bookmarksModel.find({user:{$ne:req.session.passport.user}});
+        console.log("the data of the bookmarked post is:");
+
         console.log(savedPost);
 
         res.render("Profile", { user ,savedPost });
@@ -85,22 +89,28 @@ app.get("/profile", async (req, res) => {
 app.get("/feed", async(req, res) => {
   const user = await userModal.findOne({ _id: req.session.passport.user });
 
-  // console.log("the data of the loggged in user is");
+  console.log("the data of the loggged in user is");
 
-  // console.log(user)
+  console.log(user)
 
   const allUser = await userModal.find({_id:{$ne:req.session.passport.user}})
   .populate("posts");
   
 
-  // console.log("the all user in the db are:")
-  // console.log(allUser);
+  console.log("the all user in the db are:")
+  console.log(allUser);
+
   res.render("Feed" , {user,allUser})
 })
 
 // create post page
 app.get("/createpost", async(req, res) => {
+
   const user = await userModal.findOne({ _id: req.session.passport.user })
+
+  console.log("the data of the current loggedIn user is:")
+  console.log(user);
+
   res.render("Create",{user});
 
 })
