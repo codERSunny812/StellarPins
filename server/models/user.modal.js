@@ -1,7 +1,6 @@
 import mongoose from "mongoose"
 
-
-const userSchema = new mongoose.Schema(
+export const userSchema = new mongoose.Schema(
   {
     userName: {
       type: String,
@@ -13,29 +12,48 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
     password: {
-      type: String, 
+      type: String,
     },
     fullName: {
       type: String,
       required: true,
     },
     avtar: {
-      
       type: String,
     },
     posts: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "postModal ",
+        ref: "postModal",
       },
     ],
-
-
   },
-  { 
-    timestamps: true
-   }
+  {
+    timestamps: true,
+  }
 )
 
 
-export const UserModal = mongoose.model("UserModal", userSchema)
+
+export const userModal = mongoose.model("userModal", userSchema);
+
+
+
+
+
+
+
+
+
+
+
+
+// named and default import and export 
+
+// Export Statements:
+// export default function Button() { } // default export
+// export function Button() { } // named export
+
+// Import Statements:
+// import Button from './button.js'; // default export
+// import { Button } from './button.js'; // Named export

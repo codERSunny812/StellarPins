@@ -1,13 +1,13 @@
 import mongoose from "mongoose"
 
-const postSchema = new mongoose.Schema(
+export const postSchema = new mongoose.Schema(
   {
     caption: {
       type: String,
       required: true,
     },
     imageUrl: {
-     type:String
+      type: String,
     },
     createdAt: {
       type: Date,
@@ -17,14 +17,14 @@ const postSchema = new mongoose.Schema(
       type: Array,
       default: [],
     },
-    user:{
-      type:mongoose.Schema.Types.ObjectId,
-      ref:'UserModal'
-    }
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "userModal",
+    },
   },
-  { 
-    timestamps: true
-   }
+  {
+    timestamps: true,
+  }
 )
 
 export const postModal = mongoose.model("postModal", postSchema)
