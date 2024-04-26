@@ -20,3 +20,16 @@ const handleClick = () => {
 // Attach event listener to logout button
 const btn = document.getElementById('logout-btn');
 btn.addEventListener('click', handleClick);
+
+
+function showPosts() {
+    document.getElementById('saved-posts').style.display = 'none';
+    document.getElementById('user-posts').style.display = 'flex';
+}
+
+function showSaved() {
+    document.getElementById('user-posts').style.display = 'none';
+    document.getElementById('saved-posts').style.display = 'flex';
+}
+
+

@@ -37,22 +37,66 @@
             <button type="button" class="logout-btn" id="logout-btn">logout</button>
 
         </div>
-        
 
-    <div class="uploadedpost">
+        <div class="toggle-buttons">
+            <button onclick="showPosts()" class="post-btn">Posts</button>
+            <button onclick="showSaved()" class="saved-btn">Saved</button>
+        </div>
+
+        <div class="">
+
+        </div>
+
+    <div class="uploadedpost" id="user-posts">
+
         <% if (user.posts.length > 0) { %>
         <% user.posts.map(function (post) { %>
-            <div class="card">
+            <div class="card" id="cards">
                 <img src="<%= post.imageUrl %>" class="card-img-top card-img" alt="user image">
                 <div class="card-body">
                     <p class="card-text">  <%= post.caption %> </p>
                 </div>
             </div>
+
             <% }) %>
             <%} else {%>
                 <p class="no-post">no post uploaded</p>
                 <%}%>
+
+                
+
+               
     </div>
+
+    <div class="saved-post" id="saved-posts" style="display: none;">
+       <% if(savedPost.length > 0){ %>
+        <!-- show the cards -->
+
+        <% savedPost.map(function (post) { %>
+            <div class="card" id="cards">
+                <img src="<%= post.imageUrl %>" class="card-img-top card-img" alt="user image">
+                <div class="card-body">
+                    <p class="card-text">
+                        <%= post.caption %>
+                    </p>
+                </div>
+            </div>
+        
+            <% }) %>
+
+
+
+        <% } else { %>
+        <p>you have saved nothing</p>
+        <% } %>
+    </div>
+
+    
+
+    
+
+    
+  
 
 
 

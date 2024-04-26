@@ -38,8 +38,6 @@
 
       <% allUser.map(function (userPost) { %>
 
-         
-
         <% userPost.posts.map(function (post) { %>
           <div class="card">
             <img src="<%= post.imageUrl %>" class="card-img-top card-img" alt="user image">
@@ -47,11 +45,17 @@
               <p class="card-text">
                 <%= post.caption %>
               </p>
+              <button 
+              class="btn btn-primary" 
+              id="bookmarkBtn"
+              data-postid="<%= post._id%>"
+              data-userid="<%= post.user%>"
+              >
+              add to bookmark
+            </button>
             </div>
           </div>
           <% }) %>
-
-
         <% }) %>
 
         <% } else { %>
@@ -63,6 +67,8 @@
 
     </div>
 
+
+    <script src="/Javascript/Feed.js"></script>
     
   </body>
 </html>

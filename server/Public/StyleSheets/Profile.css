@@ -73,7 +73,7 @@
   line-height:3rem;
 }
 
-.uploadedpost{
+.uploadedpost , .saved-post{
   display: flex;
   justify-content: center;
   gap: 12px;
@@ -123,3 +123,36 @@
   border-radius: 12px;
 
 }
+
+
+
+
+.toggle-buttons{
+  margin-top: 2%;
+  display: flex;
+  justify-content: space-around;
+  font-size: 18px;
+}
+
+.toggle-buttons button{
+  border: none;
+  background-color: transparent;
+  font-size: 18px;
+  font-weight: 600;
+  
+}
+
+
+
+.post-btn:focus{
+  border: none;
+ border-bottom: 4px solid gray; 
+}
+
+
+.saved-btn:focus{
+  border: none;
+border-bottom: 4px solid gray;
+}
+
+
