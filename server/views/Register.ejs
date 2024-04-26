@@ -1,67 +1,94 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/StyleSheets/Register.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="/StyleSheets/Register.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="container">
-        <div class="content">
-            <!-- pintrest image  -->
-            <img src="https://i.pinimg.com/originals/d3/d1/75/d3d175e560ae133f1ed5cd4ec173751a.png" alt="pin logo" class="img1" />
+      <div class="content">
+        <!-- pintrest image  -->
+        <img
+          src="https://i.pinimg.com/originals/d3/d1/75/d3d175e560ae133f1ed5cd4ec173751a.png"
+          alt="pin logo"
+          class="img1"
+        />
 
-            <p class="header">welcome to the pintrest </p>
+        <p class="header">welcome to the pintrest</p>
 
-            <p class="text">find new ideas to try</p>
+        <p class="text">find new ideas to try</p>
 
-            <!-- form data  -->
-            <form action="/api/v1/createuser/register" method="post" class="form">
+        <!-- form data  -->
+        <form action="/api/v1/createuser/register" method="post" class="form" enctype="multipart/form-data">
+          <input
+            type="name"
+            name="fullName"
+            placeholder="full name"
+            class="detail"
+          />
 
-            <input type="name" name="fullName" placeholder="full name" class="detail" />
+          <input
+            type="name"
+            name="userName"
+            placeholder="user name"
+            class="detail"
+          />
 
-            <input type="name" name="userName" placeholder="user name" class="detail" />
+          <input type="email" name="email" placeholder="email" class="detail" />
 
-              <input type="email" name="email" placeholder="email" class="detail" />
+          
+       
+          
+          <input type="password" name="password" placeholder="password" class="detail" />
+          
+          
+          <input
+            type="file"
+            name="photo"
+            placeholder="upload your photo"
+            class="photo"
+          />
 
-              <input type="password" name="password" placeholder="password" class="detail" />
-              
+          <button class="btn int" type="submit">register</button>
+        </form>
 
-           
-            <br/>
-                                
-              <button class="btn int" type="submit">register</button>
-            </form>
+        <p class="or">OR</p>
 
-            <p class="or">OR</p>
-            
-            <button class="btn fbk">
-                <i class="fab fa-facebook fa-lg" style="color: white; padding-right: 10px"></i><a href="#">Continue with
-                    Facebook</a></button><br />
-            <button class="btn ggl">
-                <i class="fab fa-google" style="color: rgb(11, 241, 22); padding-right: 10px"></i><a href="#">Continue with
-                    Google</a>
-            </button>
+        <button class="btn fbk">
+          <i
+            class="fab fa-facebook fa-lg"
+            style="color: white; padding-right: 10px"
+          ></i
+          ><a href="#">Continue with Facebook</a></button
+        ><br />
+        <button class="btn ggl">
+          <i
+            class="fab fa-google"
+            style="color: rgb(11, 241, 22); padding-right: 10px"
+          ></i
+          ><a href="#">Continue with Google</a>
+        </button>
 
-
-
-            <footer>
-                <p>
-                    By continuing, you agree to Pinterest's
-                    <b>Terms of Service, Privacy policy.</b>
-                </p>
-                <hr />
-                <p class="end-text">Already a member? 
-                    <a href="/login" > Login</a>
-                </p>
-            </footer>
-
-        </div>
+        <footer>
+          <p>
+            By continuing, you agree to Pinterest's
+            <b>Terms of Service, Privacy policy.</b>
+          </p>
+          <hr />
+          <p class="end-text">
+            Already a member?
+            <a href="/login"> Login</a>
+          </p>
+        </footer>
+      </div>
     </div>
-
-</body>
+  </body>
 </html>

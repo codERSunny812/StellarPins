@@ -1,33 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/StyleSheets/Feed.css">
- 
-</head>
-<body>
-   <div class="container">
+    <link rel="stylesheet" href="/StyleSheets/Feed.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <div class="topBar">
+        <img
+          src="https://i.pinimg.com/originals/d3/d1/75/d3d175e560ae133f1ed5cd4ec173751a.png"
+          alt="logo"
+          class="topBar_img"
+        />
 
-   <div class="topBar">
+        <p class="top-text home">home</p>
+        <p class="top-text">explore</p>
+        <p class="top-text"><a href="/createpost">create</a></p>
 
-    <img src="https://i.pinimg.com/originals/d3/d1/75/d3d175e560ae133f1ed5cd4ec173751a.png" alt="logo" class="topBar_img">
+        <input type="search" name="" id="searchBar" placeholder="search" />
 
-    <p class=" top-text home">home </p>
-    <p class=" top-text">explore </p>
-    <p class=" top-text"> <a href="/createpost">create</a></p>
+        <img src="/Image/noti.png" alt="notification" class="noti" />
 
-    <input type="search" name="" id="searchBar" placeholder="search">
+        <a href="/profile">
+          <img src="<%= user.avtar %>" alt="user" class="user"
+        /></a>
+      </div>
+    </div>
 
-    <img src="/Image/noti.png" alt="notification" class="noti">
+    <!-- feed of the page -->
+    <div class="feed-cards">
 
-    <a href="/profile"><img src="/Image/user.png" alt="user" class="user"></a>
+      <% if(allUser.length > 0) { %>
 
-   </div>
+      <% allUser.map(function (userPost) { %>
+
+         
+
+        <% userPost.posts.map(function (post) { %>
+          <div class="card">
+            <img src="<%= post.imageUrl %>" class="card-img-top card-img" alt="user image">
+            <div class="card-body">
+              <p class="card-text">
+                <%= post.caption %>
+              </p>
+            </div>
+          </div>
+          <% }) %>
 
 
+        <% }) %>
 
-   </div>
-</body>
+        <% } else { %>
+          <p class="no-post">no post in the feed</p>
+          <% } %>
+
+  
+
+
+    </div>
+
+    
+  </body>
 </html>
