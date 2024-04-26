@@ -1,5 +1,5 @@
 import { Strategy as LocalStrategy } from "passport-local"
-import { UserModal } from "../models/user.modal.js"
+import { userModal } from "../models/user.modal.js"
 import bcrypt from "bcryptjs"
 import passport from "passport"
 
@@ -14,7 +14,7 @@ const initilizePassport = () => {
           console.log("local Strategy is called")
 
           //  check the user in the data base
-          const searchedUser = await UserModal.findOne({ email })
+          const searchedUser = await userModal.findOne({ email })
 
           if (!searchedUser)
             return done(null, false, { message: "incorrect email" })
@@ -31,8 +31,7 @@ const initilizePassport = () => {
           return done(null, searchedUser)
         } catch (error) {
           return done(error)
-        } 
-        
+        }
       }
     )
   )
@@ -43,7 +42,7 @@ const initilizePassport = () => {
 
   passport.deserializeUser(async function (id, done) {
     try {
-      const user = await UserModal.findById(id)
+      const user = await userModal.findById(id)
       done(null, user)
     } catch (error) {
       done(error)
