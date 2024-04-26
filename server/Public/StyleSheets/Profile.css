@@ -1,12 +1,125 @@
+.topBar {
 
-.aboutAccout{
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 12px;
+
 }
 
-.aboutAccout img{
-    height: 60px;
+.topBar_img {
+  height: 60px;
+}
+
+.top-text {
+  text-transform: capitalize;
+  font-size: 16px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 500;
+}
+
+.top-text a {
+  text-decoration: none;
+  color: black;
+}
+
+.home {
+  color:black;
+  padding: 10px;
+  border-radius: 20%;
+}
+
+#searchBar {
+  width: 55%;
+  height: 42px;
+  background: #f1f1f1;
+  border: none;
+  border-radius: 15px;
+}
+#searchBar::placeholder {
+  padding-left: 12px;
+  color: #767676;
+  font-weight: 600;
+  font-style: oblique;
+  text-transform: capitalize;
+  font-size: 15px;
+}
+
+.noti,
+.user {
+  height: 35px;
+  border-radius: 50%;
+}
+
+.aboutAccout {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color:  #f1f1f1;
+  border-radius: 15px;
+}
+
+.aboutAccout img {
+  height: 140px;
+  border-radius: 50%;
+  margin-top:2rem;
+}
+
+.user-fullName{
+  text-transform: capitalize;
+  font-weight: 600;
+  line-height:3rem;
+}
+
+.uploadedpost{
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  
+}
+
+.card{
+  
+  width: 19rem;
+  margin-top: 4%;
+  margin-bottom: 2%;
+  box-shadow: #767676;
+ 
+}
+
+
+.card-img{
+  height: 400px;
+
+}
+
+.card-text{
+  text-transform: capitalize;
+  font-size: 17px;
+}
+
+.no-post{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 25px;
+  text-transform: uppercase;
+  font-weight: 600;
+  line-height: 2rem;
+}
+
+
+.logout-btn{
+  border: none;
+  background-color: red;
+  color: white;
+  padding: 4px 8px;
+  margin-bottom: 12px;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+
 }
