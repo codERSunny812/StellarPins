@@ -147,3 +147,41 @@ button {
   background-color: black;
   text-transform: capitalize;
 }
+@media (max-width: 768px) {
+  .topBar{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+  }
+  #searchBar{
+    display:none;
+  }
+  .top-text{
+    border: 2px solid black;
+  display:none;
+  }
+  .noti{
+    display: none;
+  }
+
+
+
+
+  .form{
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .photouploadcontainer{
+    margin: 0;
+    padding: 0;
+    width:90%;
+  }
+
+  #caption{
+    width: 300px;
+  }
+
+
+}

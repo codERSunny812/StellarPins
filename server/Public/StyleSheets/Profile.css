@@ -21,6 +21,7 @@
 .top-text a {
   text-decoration: none;
   color: black;
+  cursor: pointer;
 }
 
 .home {
@@ -154,5 +155,33 @@
   border: none;
 border-bottom: 4px solid gray;
 }
+
+
+.saved-para{
+  margin-top: 4%;
+  font-size: 22px;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .topBar{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+  }
+  #searchBar{
+    display:none;
+  }
+  .top-text , .noti{
+    border: 2px solid black;
+  display:none;
+  }
+
+
+
+}
+
+
 
 

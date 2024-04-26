@@ -108,3 +108,26 @@ display: flex;
 .btn{
   text-transform: capitalize;
 }
+
+.dropdown-btn{
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .topBar{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+  }
+  #searchBar{
+    display:none;
+  }
+  .top-text{
+    border: 2px solid black;
+  display:none;
+  }
+.dropdown{
+  display: block;
+box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+}
