@@ -5,11 +5,12 @@ import { upload } from "../utils/Multer.config.js"
 import { connectCloudinary } from "../utils/Cloudinary.config.js"
 import fs from 'fs'
 
-const Router = express.Router()
+const Router = express.Router();
 
 // route to create a  post
 Router.post("/upload", upload.single("file"), async (req, res) => {
   try {
+
     if (!req.file) return res.status(404).send("no file found")
     
     // storing image  on the cloud
@@ -17,15 +18,11 @@ Router.post("/upload", upload.single("file"), async (req, res) => {
       transformation: [
         { width: 300, height: 300, crop: "fill" },
         { radius: "max" }
-
       ]
     });
 
 
     fs.unlinkSync(req.file.path);
-
-
-
 
 
     const userId = req.session.passport.user
@@ -35,8 +32,6 @@ Router.post("/upload", upload.single("file"), async (req, res) => {
     if (!user) {
       return res.status(404).send("User not found");
     }
-
-
 
     const newPost = await postModal.create({
       caption: req?.body?.caption,

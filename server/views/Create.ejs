@@ -42,7 +42,7 @@
             <img src="/Image/up.png" alt="upload file" class="uploadfile" />
 
             <p>choose a file to upload</p>
-            <input id="file-input" type="file" name="file" />
+            <input id="file-input" type="file" name="file" onchange="checkFileSize()"  />
           </label>
         </div>
 
@@ -60,5 +60,22 @@
         </div>
       </form>
     </div>
+        <script>
+
+          function checkFileSize() {
+            const fileInput = document.getElementById('file-input');
+            if (fileInput.files.length > 0) {
+              const fileSize = fileInput.files[0].size; // File size in bytes
+              const maxSize = 1024 * 1024; // 1MB in bytes
+              if (fileSize > maxSize) {
+                alert('Please select a file smaller than 1MB');
+                // Clear the file input (optional)
+                fileInput.value = '';
+              }
+            }
+          }
+          
+        </script>
+
   </body>
 </html>

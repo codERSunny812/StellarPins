@@ -147,6 +147,16 @@ button {
   background-color: black;
   text-transform: capitalize;
 }
+
+
+#upload-message{
+  border: 2px solid red;
+  position:relative;
+  top:360px;
+  left: 700px;
+}
+
+
 @media (max-width: 768px) {
   .topBar{
     display: flex;
@@ -182,6 +192,13 @@ button {
   #caption{
     width: 300px;
   }
+
+  #upload-message{
+  border: 2px solid red;
+  position:sticky;
+  top:370px;
+  left: 700px;
+}
 
 
 }
