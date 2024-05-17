@@ -8,12 +8,12 @@ export const connectDB = async () => {
     await mongoose
       .connect(url)
       .then(() => {
-        console.log("the data base is connected successfully")
+        console.log("the data base is connected successfully");
       })
       .catch((error) => {
-        console.log("the data base is not connected successfully")
+        console.log("the data base is not connected successfully");
       })
   } catch (error) {
-    console.log(`mongodb is getting error ${error}`)
+    console.log(`mongodb is getting error ${error}`);
   }
 }

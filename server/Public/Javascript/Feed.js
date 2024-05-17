@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Select all bookmark buttons
-    const bookmarkBtns = document.querySelectorAll('.btn-primary');
+    const bookmarkBtns = document.querySelectorAll('.savedPost');
 
     // Add event listener to each bookmark button
     bookmarkBtns.forEach(function (btn) {
@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log(postId, userId);
 
             addToSavedPost({ userId, postId });
+            
         });
     });
 

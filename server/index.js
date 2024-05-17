@@ -12,14 +12,17 @@ import { userModal } from "./models/user.modal.js"
 import { postModal } from "./models/post.modal.js"
 import { bookmarksModel } from "./models/bookmark.modal.js"
 
-const app = express()
+
+
+const app = express();
 const PORT = process.env.PORT || 3001
 
 //view engine setup
-app.set("view engine", "ejs")
+app.set("view engine", "ejs");
 
 //static file setup
 app.use(express.static("./Public"))
+
 
 //connecting the passport js to our application
 initilizePassport();
@@ -65,21 +68,23 @@ app.get("/login", (req, res) => {
 // profile page
 app.get("/profile", async (req, res) => {
     try {
+
         const user = await userModal.findOne({ _id: req.session.passport.user }).populate('posts');
 
         
         // Log the populated user object to see the posts array populated with post documents
-        console.log("the data of the current loggedIn user is:")
-        console.log(user);
+        // console.log("the data of the current loggedIn user is:")
+        // console.log(user);
 
         const savedPost = await bookmarksModel.find({user:{$ne:req.session.passport.user}});
-        console.log("the data of the bookmarked post is:");
+        // console.log("the data of the bookmarked post is:");
 
-        console.log(savedPost);
+        // console.log(savedPost);
 
         res.render("Profile", { user ,savedPost });
+
     } catch (error) {
-        console.error("Error fetching user profile:", error);
+        // console.error("Error fetching user profile:", error);
         res.status(500).send("Internal Server Error");
     }
 });
@@ -108,8 +113,8 @@ app.get("/createpost", async(req, res) => {
 
   const user = await userModal.findOne({ _id: req.session.passport.user })
 
-  console.log("the data of the current loggedIn user is:")
-  console.log(user);
+  // console.log("the data of the current loggedIn user is:")
+  // console.log(user);
 
   res.render("Create",{user});
 
@@ -123,9 +128,9 @@ app.post('/api/v1/addtobookmark',async (req,res)=>{
   const {userId, postId}= req.body;
 
 
-  console.log("the data coming from the front end during saving the post");
+  // console.log("the data coming from the front end during saving the post");
 
-  console.log(req.body);
+  // console.log(req.body);
 
 
   // find post using the id
@@ -133,8 +138,8 @@ app.post('/api/v1/addtobookmark',async (req,res)=>{
   const selectedPost = await postModal.findOne({_id:postId});
 
 
-  console.log("the selected post is");
-  console.log(selectedPost);
+  // console.log("the selected post is");
+  // console.log(selectedPost);
 
   // now store the post into the savedModel 
 
