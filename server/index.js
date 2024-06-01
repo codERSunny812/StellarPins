@@ -11,11 +11,16 @@ import flash from "connect-flash"
 import { userModal } from "./models/user.modal.js"
 import { postModal } from "./models/post.modal.js"
 import { bookmarksModel } from "./models/bookmark.modal.js"
+import { runCronJob } from "./utils/CronSchedule.js"
 
 
 
 const app = express();
 const PORT = process.env.PORT || 3001
+
+
+// running the cron job
+runCronJob();
 
 //view engine setup
 app.set("view engine", "ejs");
