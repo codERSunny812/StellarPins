@@ -3,7 +3,7 @@ import { postModal } from "../models/post.modal.js"
 import { userModal } from "../models/user.modal.js"
 import { upload } from "../utils/Multer.config.js"
 import { connectCloudinary } from "../utils/Cloudinary.config.js"
-import fs from 'fs'
+import fs from 'fs/promises'
 
 const Router = express.Router();
 
@@ -11,7 +11,10 @@ const Router = express.Router();
 Router.post("/upload", upload.single("file"), async (req, res) => {
   try {
 
-    if (!req.file) return res.status(404).send("no file found")
+    if (!req.file) return res.status(404).send("no file found");
+
+    // start  measuring the time 
+    console.time("upload time")
     
     // storing image  on the cloud
     const cloudLink = await connectCloudinary(req.file.path,{
@@ -22,7 +25,7 @@ Router.post("/upload", upload.single("file"), async (req, res) => {
     });
 
 
-    fs.unlinkSync(req.file.path);
+    await fs.unlink(req.file.path);
 
 
     const userId = req.session.passport.user
@@ -46,9 +49,10 @@ Router.post("/upload", upload.single("file"), async (req, res) => {
 
     console.log("post created succesfully")
 
-    // console.log(user)
+    console.timeEnd("Upload Time"); // End measuring time taken
 
-    res.redirect('/profile')
+
+    res.redirect('/profile?upload=success');
 
   }
   catch (error) {
