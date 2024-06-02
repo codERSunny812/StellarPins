@@ -36,72 +36,63 @@
         <img src="/Image/noti.png" alt="notification" class="noti" />
 
         <a href="/profile">
-          <img src="<%= user.avtar %>" alt="user" class="user"
+          <img src="<%= currentUser.avtar %>" alt="user" class="user"
         /></a>
       </div>
     </div>
     <!-- feed of the page -->
     <div class="feed-cards">
 
+      <% if(hasPosts){%>
 
-      <!-- if there is  user then show the new post -->
-      <% if(allUser.length > 0) { %>
+        <% allUser.forEach(user=>{ %>
 
+          <% if (allUser.posts && allUser.posts.length> 0) { %>
 
-        <!-- if user is present in all user  -->
-      <% allUser.map(function (userPost) { %>
-
-        <!-- if the user has uploaded the post -->
-        <% if(userPost.posts.length > 0){ %>
-
-        <% userPost.posts.map(function (post) { %>
-
-          <div class="card">
-
-            <div class="imagePart">
-            <img src="<%= post.imageUrl %>" class="card-img" alt="user image">
-            </div>
-
-            <div class="captionPart">
-
-              <div class="caption">
-                  <p class="card-text">
-                    <%= post.caption %>
-                  </p>
+            <% allUser.posts.forEach(post=> { %>
+              
+              <div class="card">
+              
+                <div class="imagePart">
+                  <img src="<%= post.imageUrl %>" class="card-img" alt="user image">
+                </div>
+              
+                <div class="captionPart">
+              
+                  <div class="caption">
+                    <p class="card-text">
+                      <%= post.caption %>
+                    </p>
+                  </div>
+              
+                  <div class="savedPost" data-postid="<%= post._id%>" data-userid="<%= post.user%>">
+                    <i class="fa-solid fa-bookmark savedIcon"></i>
+                  </div>
+              
+              
+                </div>
+              
+              
               </div>
 
-              <div class="savedPost" data-postid="<%= post._id%>" 
-              data-userid="<%= post.user%>">
-                <i class="fa-solid fa-bookmark savedIcon"></i>
-              </div>
 
-
-            </div>
-
-
-          </div>
-          
-          <% }) %>
-
-          <!-- if the user didn't upload the post  -->
-          <%} else { %>
-            <p class="no-post">no post in the feed</p>
-            <%}%>
+            <% }); %>
 
 
 
-        <% }) %>
-
-        <!-- if there is no user in the allUser then  -->
-        <% } else { %>
-
-        <p class="no-post">no post in the feed</p>
-
-      <% } %>
-
-  
+            <% } %>
 
 
+
+          <%});%>
+
+
+        <%} else {%>
+
+          <p>no post available</p>
+
+
+          <%}%>
     </div>
     <script src="/Javascript/Feed.js"></script> 
   </body>

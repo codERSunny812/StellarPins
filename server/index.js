@@ -56,11 +56,11 @@ app.use(cookieParser())
 app.use(passport.initialize())
 app.use(passport.session())
 
-// mount the  router
+//  routes to create the post and user 
 app.use("/api/v1/createuser", UserRouter)
 app.use("/api/v1/createpost", PostRouter)
 
-//home route that is the register route
+//register  page
 app.get("/", (req, res) => {
   res.render("Register")
 })
@@ -75,7 +75,6 @@ app.get("/profile", async (req, res) => {
     try {
 
         const user = await userModal.findOne({ _id: req.session.passport.user }).populate('posts');
-
         
         // Log the populated user object to see the posts array populated with post documents
         // console.log("the data of the current loggedIn user is:")
@@ -97,20 +96,32 @@ app.get("/profile", async (req, res) => {
 
 // feed page
 app.get("/feed", async(req, res) => {
-  const user = await userModal.findOne({ _id: req.session.passport.user });
+  try {
+    // the current loggedIn user 
+    const currentUser = await userModal.findOne({ _id: req.session.passport.user });
 
-  console.log("the data of the loggged in user is");
+    // fetch all the  other user except the current loggedIn user
+    const allUser = await userModal.find({ _id: { $ne: currentUser } }).
+    populate('posts')
 
-  console.log(user)
 
-  const allUser = await userModal.find({_id:{$ne:req.session.passport.user}})
-  .populate("posts");
-  
+    // Check if there are any posts uploaded by any user
+    const hasPosts = allUser.some(user => user.posts && user.posts.length > 0);
 
-  console.log("the all user in the db are:")
-  console.log(allUser);
+    console.log("the currentUser is:");
+    console.log(currentUser);
 
-  res.render("Feed" , {user,allUser})
+    console.log("the users in the DB is:")
+    console.log(allUser);
+
+
+    console.log(hasPosts);
+
+    res.render('feed', { allUser, hasPosts , currentUser });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Server Error');
+  }
 })
 
 // create post page
