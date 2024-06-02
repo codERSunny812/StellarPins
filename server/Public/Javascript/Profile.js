@@ -1,3 +1,16 @@
+
+// Check if the URL contains the query parameter 'upload=success'
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('upload') === 'success') {
+    const successMessage = document.getElementById('successMessage');
+    successMessage.style.display = 'block';
+    // Hide the success message after 5 seconds (5000 milliseconds)
+    setTimeout(() => {
+        successMessage.style.display = 'none';
+    }, 5000);
+}
+
+
 // Define handleClick function first
 const handleClick = () => {
     console.log("btn clicked")

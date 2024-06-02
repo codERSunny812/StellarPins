@@ -156,6 +156,16 @@ button {
   left: 700px;
 }
 
+#loadingMessage{
+        display: none;
+        background-color: #d4edda;
+        color: #155724;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #c3e6cb;
+        border-radius: 4px;
+      }
+
 
 @media (max-width: 768px) {
   .topBar{

@@ -184,6 +184,10 @@ hr {
   color: black;
 }
 
+.end-text a:hover{
+  color: gray
+}
+
 .error {
   font-weight: 700;
   color: #df0812;
