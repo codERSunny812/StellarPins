@@ -8,13 +8,17 @@ import fs from 'fs/promises'
 const Router = express.Router();
 
 // route to create a  post
-Router.post("/upload", upload.single("file"), async (req, res) => {
+Router.post("/upload",upload.single("file"), async (req, res) => {
   try {
 
     if (!req.file) return res.status(404).send("no file found");
 
     // start  measuring the time 
-    console.time("upload time")
+    console.time("upload time");
+
+    console.log(req)
+
+    console.log(req.file)
     
     // storing image  on the cloud
     const cloudLink = await connectCloudinary(req.file.path,{

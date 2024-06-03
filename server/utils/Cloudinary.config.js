@@ -1,5 +1,5 @@
 import { v2 as cloudinary } from 'cloudinary';
-import fs from 'fs'
+import fs from 'fs/promises'
 
 
 
@@ -31,7 +31,7 @@ export const connectCloudinary = async(localFilePath)=>{
 
     } catch (error) {
         //as the operation got faild then it will remove the file
-        fs.unlinkSync(localFilePath);
+        await fs.unlink(localFilePath);
 
         return null;
     }
