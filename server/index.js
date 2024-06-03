@@ -117,7 +117,7 @@ app.get("/feed", async(req, res) => {
 
     console.log(hasPosts);
 
-    res.render('feed', { allUser, hasPosts , currentUser });
+    res.render('Feed', { allUser, hasPosts , currentUser });
   } catch (error) {
     console.error(error);
     res.status(500).send('Server Error');
