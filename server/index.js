@@ -12,6 +12,7 @@ import { userModal } from "./models/user.modal.js"
 import { postModal } from "./models/post.modal.js"
 import { bookmarksModel } from "./models/bookmark.modal.js"
 import { runCronJob } from "./utils/CronSchedule.js"
+const bodyParser = require('body-parser');
 
 
 
@@ -46,12 +47,7 @@ app.use(
   })
 )
 app.use(express.json({ limit: "50kb" }))
-app.use(
-  express.urlencoded({
-    extended: true,
-    limit: "50kb",
-  })
-)
+app.use(bodyParser.urlencoded({ extended: false, limit: '10kb' }));
 app.use(cookieParser())
 app.use(passport.initialize())
 app.use(passport.session())
