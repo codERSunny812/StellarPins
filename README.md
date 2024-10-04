@@ -1,4 +1,4 @@
-# Pinterest Clone
+# 💢Pinterest Clone
 
 This project is a Pinterest clone that allows users to register via email and password and also user can use third party application like google and Facebook to login, upload posts with images and captions, view a feed of posts from other users, and see their own uploaded posts in their profile. Additionally, users can save their favorite posts, which will be visible in their profile section.
 
